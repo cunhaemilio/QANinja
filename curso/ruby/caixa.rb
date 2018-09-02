@@ -1,12 +1,11 @@
 
 
 class Caixa
-    attr_accessor :nome, :saldo, :saque
+    attr_accessor :nome, :saldo
 
-    def initialize(nome, saldo, saque)
+    def initialize(nome, saldo)
         @nome = nome
         @saldo = saldo
-        @saque = saque
     end
 
     def mostraNome
@@ -17,15 +16,22 @@ class Caixa
         puts "Seu saldo é de R$ #{@saldo},00 reais"
     end
 
-    def saca
-        puts "Você está sacando R$ #{@saque},00 reais"
-        @saldo = @saldo - @saque
+    def saca(valor)
+        @saldo -= valor
+        puts "Você está sacando R$ #{valor},00 reais"
+    
     end
 
 end
 
-fulano = Caixa.new('Fulano', 100, 10)
+fulano = Caixa.new('Fulano', 100)
 fulano.mostraNome
 fulano.mostraSaldo
-fulano.saca
+fulano.saca(10)
 fulano.mostraSaldo
+
+if @saldo == 90
+    puts 'passou'
+else
+    puts 'falhou'    
+end
